@@ -1,20 +1,24 @@
-package user;
+package users;
+import resources.LibraryDataBase;
 
-public class Reader extends User implements usersInterfaces.Reader {
-    public static int readersCount;
+public class ReaderImpl extends User implements usersInterfaces.Reader {
     protected String pass;
 
-    public Reader (String name, String surname, String id) {
+    public ReaderImpl(String name, String surname, String id) {
         this.name = name;
         this.surname = surname;
         this.id = id;
         pass = name + "_" + id;
-        readersCount++;
-        if (readersCount <= 5) {
-            Administrator.readersPasses[readersCount - 1] = pass;
+
+        if (LibraryDataBase.getTotalReaders() <= 5) {
+            LibraryDataBase.addReaderPass(pass);
         } else {
             System.out.println("Слишком много читателей в библиотеке, ваше обслуживание в данный момент приостановлено!");
         }
+    }
+
+    public String getPass() {
+        return pass;
     }
 
     @Override

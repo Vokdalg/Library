@@ -1,7 +1,7 @@
-package user;
+package users;
 
-public class Librarian extends User {
-    public Librarian (String name, String surname, String id) {
+public class LibrarianImpl extends User {
+    public LibrarianImpl(String name, String surname, String id) {
         this.name = name;
         this.surname = surname;
         this.id = id;

@@ -1,7 +1,7 @@
-package user;
+package users;
 
-public class Supplier extends User {
-    public Supplier (String name, String surname, String id) {
+public class SupplierImpl extends User {
+    public SupplierImpl(String name, String surname, String id) {
         this.name = name;
         this.surname = surname;
         this.id = id;

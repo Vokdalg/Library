@@ -1,9 +1,9 @@
-package user;
+package users;
 
 public abstract class User {
-    String name;
-    String surname;
-    String id;
+    protected String name;
+    protected String surname;
+    protected String id;
 
     @Override
     public String toString() {
@@ -12,6 +12,18 @@ public abstract class User {
                 ", surname='" + surname + '\'' +
                 ", id='" + id + '\'' +
                 '}';
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public abstract void enterLibrary();
