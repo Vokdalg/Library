@@ -15,7 +15,6 @@ public class Book {
         this.numberOFSheets = numberOFSheets;
         this.year = year;
         this.price = price;
-        this.numberOfReaders = 0;
 
         if (LibraryDataBase.getTotalBooks() <= 5) {
             LibraryDataBase.addBook(this);
@@ -51,8 +50,7 @@ public class Book {
     @Override
     public String toString() {
         return "Book{" +
-                "numberOfReaders=" + numberOfReaders +
-                ", name='" + name + '\'' +
+                "name='" + name + '\'' +
                 ", genre='" + genre + '\'' +
                 ", numberOFSheets=" + numberOFSheets +
                 ", year=" + year +

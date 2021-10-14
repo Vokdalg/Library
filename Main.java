@@ -29,7 +29,9 @@ public class Main {
         System.out.println(Arrays.deepToString(LibraryDataBase.getBooks()));
         System.out.println(Arrays.deepToString(LibraryDataBase.getReadersPasses()));
 
+        reader.readBook(bookOne);
         administrator.checkPass(reader);
-
+        reader.readBook(bookOne);
+        administrator.overdueNotification(reader);
     }
 }

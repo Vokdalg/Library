@@ -1,9 +1,11 @@
 package users;
+import resources.Book;
 
 public abstract class User {
     protected String name;
     protected String surname;
     protected String id;
+    protected Book readingBook;
 
     @Override
     public String toString() {
@@ -24,6 +26,14 @@ public abstract class User {
 
     public String getId() {
         return id;
+    }
+
+    public Book getReadingBook() {
+        return readingBook;
+    }
+
+    public void setReadingBook(Book readingBook) {
+        this.readingBook = readingBook;
     }
 
     public abstract void enterLibrary();
