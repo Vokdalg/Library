@@ -27,11 +27,6 @@ public class Main {
         SupplierImpl supplier = new SupplierImpl("Viktor", "Smirnov", "Supplier_0187418");
         supplier.enterLibrary();
 
-        System.out.println(LibraryDataBase.getTotalReaders());
-        System.out.println(LibraryDataBase.getTotalBooks());
-        System.out.println(Arrays.deepToString(LibraryDataBase.getBooks()));
-        System.out.println(Arrays.deepToString(LibraryDataBase.getReadersPasses()));
-
         reader.readBook(bookOne);
         administrator.checkPass(reader);
         reader.readBook(bookOne);
