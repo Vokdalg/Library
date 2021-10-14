@@ -43,10 +43,25 @@ public class ReaderImpl extends User implements usersInterfaces.Reader {
     @Override
     public void readBook(Book book) {
         if (isStatus()) {
-            setReadingBook(book);
-            System.out.printf("Читатель %s %s успешно взял для прочтения книгу %s\n", getName(), getSurname(), book.getName());
+            if (getReadingBook() == null) {
+                setReadingBook(book);
+                System.out.printf("Читатель %s %s успешно взял для прочтения книгу %s\n", getName(), getSurname(), book.getName());
+            } else {
+                System.out.printf("Сначало нужно будет вернуть книгу: %s в библиотеку!\n", getReadingBook().getName());
+            }
+
         } else {
             System.out.printf("Читатель %s %s не смог взять для прочтения книгу %s. Нужно предъявить читательский билет.\n", getName(), getSurname(), book.getName());
+        }
+    }
+
+    @Override
+    public void returnBook() {
+        if (getReadingBook() != null) {
+            System.out.printf("Читатель %s %s вернул кингу %s в библиотеку.\n", getName(), getSurname(), getReadingBook().getName());
+            setReadingBook(null);
+        } else {
+            System.out.printf("Читатель %s %s не имеет на руках книг.\n", getName(), getSurname());
         }
     }
 }

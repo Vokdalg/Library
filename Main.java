@@ -18,6 +18,9 @@ public class Main {
         ReaderImpl reader = new ReaderImpl("Yana", "Gladkova", "Reader_0980984");
         reader.enterLibrary();
 
+        ReaderImpl reader1 = new ReaderImpl("Dmitriy", "Maslov", "Reader_983459");
+        reader1.enterLibrary();
+
         LibrarianImpl librarian = new LibrarianImpl("Alex", "Ivanov", "Librarian_01934709285");
         librarian.enterLibrary();
 
@@ -33,5 +36,9 @@ public class Main {
         administrator.checkPass(reader);
         reader.readBook(bookOne);
         administrator.overdueNotification(reader);
+        reader.readBook(bookTwo);
+        reader.returnBook();
+        reader.readBook(bookTwo);
+        reader1.returnBook();
     }
 }
