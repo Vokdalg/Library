@@ -1,5 +1,7 @@
 package usersInterfaces;
 
+import users.SupplierImpl;
+
 public interface Librarian {
-    void orderBook(String book);
+    void orderBook(SupplierImpl supplier, String book);
 }

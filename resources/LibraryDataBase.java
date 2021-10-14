@@ -1,5 +1,7 @@
 package resources;
 
+import users.SupplierImpl;
+
 import java.util.Arrays;
 
 public class LibraryDataBase {
@@ -38,18 +40,18 @@ public class LibraryDataBase {
         System.out.println(Arrays.toString(booksForOrder));
     }
 
-    public static void addBookForOrder(String orderBook) {
+    public static void addBookForOrder(SupplierImpl supplier, String orderBook) {
         for (int i = 0; i < LibraryDataBase.getBooksForOrder().length; i++) {
             if (LibraryDataBase.booksForOrder[i] == null) {
                 LibraryDataBase.booksForOrder[i] = orderBook;
-                System.out.printf("Книга %s добавлена в заказ.\n", orderBook);
+                System.out.printf("%s %s добавил книгу %s в заказ.", supplier.getName(), supplier.getSurname(), orderBook);
                 return;
             } else if (LibraryDataBase.booksForOrder[i].equals(orderBook)) {
-                System.out.printf("Книга %s уже находится в заказе.\n", orderBook);
+                System.out.printf("Книга %s уже находится в заказе.", orderBook);
                 return;
             }
         }
-        System.out.println("Список заказа полон");
+        System.out.print("Список заказа полон.");
     }
 
     public static void addReaderPass(String pass) {

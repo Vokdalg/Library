@@ -1,16 +1,17 @@
 package users;
 
 import resources.*;
+import usersInterfaces.Reader;
 
-public class ReaderImpl extends User implements usersInterfaces.Reader {
+public class ReaderImpl extends User implements Reader {
     protected String pass;
-    private boolean status = false;
 
     public ReaderImpl(String name, String surname, String id) {
         this.name = name;
         this.surname = surname;
         this.id = id;
         pass = name + "_" + id;
+        status = false;
 
         if (LibraryDataBase.getTotalReaders() <= 5) {
             LibraryDataBase.addReaderPass(pass);
@@ -21,10 +22,6 @@ public class ReaderImpl extends User implements usersInterfaces.Reader {
 
     public String getPass() {
         return pass;
-    }
-
-    public boolean isStatus() {
-        return status;
     }
 
     public void setStatus(boolean status) {
@@ -42,27 +39,12 @@ public class ReaderImpl extends User implements usersInterfaces.Reader {
     }
 
     @Override
-    public void readBook(Book book) {
-        if (isStatus()) {
-            if (getReadingBook() == null) {
-                setReadingBook(book);
-                System.out.printf("Читатель %s %s успешно взял для прочтения книгу %s\n", getName(), getSurname(), book.getName());
-            } else {
-                System.out.printf("Сначало нужно будет вернуть книгу: %s в библиотеку!\n", getReadingBook().getName());
-            }
-
-        } else {
-            System.out.printf("Читатель %s %s не смог взять для прочтения книгу %s. Нужно предъявить читательский билет.\n", getName(), getSurname(), book.getName());
-        }
+    public void readBook(AdministratorImpl administrator, Book book) {
+        administrator.giveOutBook(this, book);
     }
 
     @Override
-    public void returnBook() {
-        if (getReadingBook() != null) {
-            System.out.printf("Читатель %s %s вернул кингу %s в библиотеку.\n", getName(), getSurname(), getReadingBook().getName());
-            setReadingBook(null);
-        } else {
-            System.out.printf("Читатель %s %s не имеет на руках книг.\n", getName(), getSurname());
-        }
+    public void returnBook(AdministratorImpl administrator) {
+        administrator.acceptBook(this);
     }
 }

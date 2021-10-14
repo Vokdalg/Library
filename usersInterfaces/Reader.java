@@ -1,9 +1,10 @@
 package usersInterfaces;
 
 import resources.*;
+import users.AdministratorImpl;
 
 public interface Reader {
-    void readBook(Book book);
+    void readBook(AdministratorImpl administrator, Book book);
 
-    void returnBook();
+    void returnBook(AdministratorImpl administrator);
 }

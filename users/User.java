@@ -7,6 +7,7 @@ public abstract class User {
     protected String surname;
     protected String id;
     protected Book readingBook;
+    protected boolean status = true;
 
     @Override
     public String toString() {
@@ -27,6 +28,10 @@ public abstract class User {
 
     public String getId() {
         return id;
+    }
+
+    public boolean isStatus() {
+        return status;
     }
 
     public Book getReadingBook() {

@@ -1,8 +1,6 @@
 import resources.*;
 import users.*;
 
-import java.util.Arrays;
-
 public class Main {
     public static void main(String[] args) {
         LibraryDataBase libraryBase = new LibraryDataBase();
@@ -27,24 +25,24 @@ public class Main {
         SupplierImpl supplier = new SupplierImpl("Viktor", "Smirnov", "Supplier_0187418");
         supplier.enterLibrary();
 
-        reader.readBook(bookOne);
+        reader.readBook(administrator, bookOne);
         administrator.checkPass(reader);
-        reader.readBook(bookOne);
+        reader.readBook(administrator, bookOne);
         administrator.overdueNotification(reader);
-        reader.readBook(bookTwo);
-        reader.returnBook();
-        reader.readBook(bookTwo);
-        reader1.returnBook();
-        librarian.orderBook("Дюна");
-        librarian.orderBook("Над кукушкиным гнездом");
-        librarian.orderBook("Идиот");
-        librarian.orderBook("Вся королевская рать");
-        librarian.orderBook("В круге первом");
-        librarian.orderBook("Дюна");
-        librarian.orderBook("Том Сойер");
-        supplier.takeOrderForProcessing();
-        supplier.readBook(bookFour);
-        supplier.readBook(bookFive);
-        supplier.returnBook();
+        reader.readBook(administrator, bookTwo);
+        reader.returnBook(administrator);
+        reader.readBook(administrator, bookTwo);
+        reader1.returnBook(administrator);
+        librarian.orderBook(supplier,"Дюна");
+        librarian.orderBook(supplier, "Над кукушкиным гнездом");
+        librarian.orderBook(supplier,"Идиот");
+        librarian.orderBook(supplier, "Вся королевская рать");
+        librarian.orderBook(supplier, "В круге первом");
+        librarian.orderBook(supplier, "Дюна");
+        librarian.orderBook(supplier, "Том Сойер");
+        supplier.transferOrder(librarian);
+        supplier.readBook(administrator, bookFour);
+        supplier.readBook(administrator, bookFive);
+        supplier.returnBook(administrator);
     }
 }

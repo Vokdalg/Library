@@ -1,5 +1,7 @@
 package usersInterfaces;
 
+import users.LibrarianImpl;
+
 public interface Supplier {
-    void takeOrderForProcessing();
+    void transferOrder (LibrarianImpl librarian);
 }

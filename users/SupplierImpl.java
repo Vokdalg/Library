@@ -22,28 +22,18 @@ public class SupplierImpl extends User implements Supplier, Reader {
     }
 
     @Override
-    public void takeOrderForProcessing() {
-        System.out.println("Успешно сформирован и взят в обработку заказ на следующие книги:");
+    public void transferOrder(LibrarianImpl librarian) {
+        System.out.printf("Поставщик %s %s передал библиотекарю %s %s следующие книги: ", getName(), getSurname(), librarian.getName(), librarian.getSurname());
         LibraryDataBase.printOrder();
     }
 
     @Override
-    public void readBook(Book book) {
-        if (getReadingBook() == null) {
-            setReadingBook(book);
-            System.out.printf("Поставщик %s %s успешно взял для прочтения книгу %s\n", getName(), getSurname(), book.getName());
-        } else {
-            System.out.printf("Сначало нужно будет вернуть книгу: %s в библиотеку!\n", getReadingBook().getName());
-        }
+    public void readBook(AdministratorImpl administrator, Book book) {
+        administrator.giveOutBook(this, book);
     }
 
     @Override
-    public void returnBook() {
-        if (getReadingBook() != null) {
-            System.out.printf("Поставщик %s %s вернул кингу %s в библиотеку.\n", getName(), getSurname(), getReadingBook().getName());
-            setReadingBook(null);
-        } else {
-            System.out.printf("Поставщик %s %s не имеет на руках книг.\n", getName(), getSurname());
-        }
+    public void returnBook(AdministratorImpl administrator) {
+        administrator.acceptBook(this);
     }
 }

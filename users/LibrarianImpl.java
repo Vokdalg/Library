@@ -2,6 +2,7 @@ package users;
 
 import resources.LibraryDataBase;
 import usersInterfaces.Librarian;
+import usersInterfaces.Supplier;
 
 public class LibrarianImpl extends User implements Librarian {
     public LibrarianImpl(String name, String surname, String id) {
@@ -21,7 +22,8 @@ public class LibrarianImpl extends User implements Librarian {
     }
 
     @Override
-    public void orderBook(String orderBook) {
-        LibraryDataBase.addBookForOrder(orderBook);
+    public void orderBook(SupplierImpl supplier, String orderBook) {
+        LibraryDataBase.addBookForOrder(supplier, orderBook);
+        System.out.println();
     }
 }
