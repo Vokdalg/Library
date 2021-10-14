@@ -1,5 +1,7 @@
 package resources;
 
+import java.util.Arrays;
+
 public class LibraryDataBase {
     private static String[] readersPasses = new String[5];
     private static int totalReaders = 0;
@@ -30,6 +32,10 @@ public class LibraryDataBase {
 
     public static String[] getBooksForOrder() {
         return booksForOrder;
+    }
+
+    public static void printOrder() {
+        System.out.println(Arrays.toString(booksForOrder));
     }
 
     public static void addBookForOrder(String orderBook) {

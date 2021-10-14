@@ -47,6 +47,9 @@ public class Main {
         librarian.orderBook("В круге первом");
         librarian.orderBook("Дюна");
         librarian.orderBook("Том Сойер");
-        System.out.println(Arrays.toString(LibraryDataBase.getBooksForOrder()));
+        supplier.takeOrderForProcessing();
+        supplier.readBook(bookFour);
+        supplier.readBook(bookFive);
+        supplier.returnBook();
     }
 }
