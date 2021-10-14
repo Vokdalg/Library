@@ -40,5 +40,13 @@ public class Main {
         reader.returnBook();
         reader.readBook(bookTwo);
         reader1.returnBook();
+        librarian.orderBook("Дюна");
+        librarian.orderBook("Над кукушкиным гнездом");
+        librarian.orderBook("Идиот");
+        librarian.orderBook("Вся королевская рать");
+        librarian.orderBook("В круге первом");
+        librarian.orderBook("Дюна");
+        librarian.orderBook("Том Сойер");
+        System.out.println(Arrays.toString(LibraryDataBase.getBooksForOrder()));
     }
 }

@@ -1,4 +1,5 @@
 package users;
+
 import resources.Book;
 
 public abstract class User {
@@ -37,6 +38,7 @@ public abstract class User {
     }
 
     public abstract void enterLibrary();
+
     public abstract void leaveLibrary();
 
 }

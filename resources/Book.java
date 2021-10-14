@@ -9,7 +9,7 @@ public class Book {
     private double price;
 
 
-    public Book(String name, String genre, int numberOFSheets,int year, double price) {
+    public Book(String name, String genre, int numberOFSheets, int year, double price) {
         this.name = name;
         this.genre = genre;
         this.numberOFSheets = numberOFSheets;
