@@ -5,11 +5,11 @@ import users.SupplierImpl;
 import java.util.Arrays;
 
 public class LibraryDataBase {
-    private static String[] readersPasses = new String[5];
+    private static final String[] readersPasses = new String[5];
     private static int totalReaders = 0;
     private static int totalBooks = 0;
-    private static Book[] books = new Book[5];
-    private static String[] booksForOrder = new String[5];
+    private static final Book[] books = new Book[5];
+    private static final String[] booksForOrder = new String[5];
 
     public static Book[] getBooks() {
         return books;

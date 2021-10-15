@@ -3,6 +3,7 @@ package users;
 import resources.Book;
 
 public abstract class User {
+    protected String role;
     protected String name;
     protected String surname;
     protected String id;
@@ -42,8 +43,12 @@ public abstract class User {
         this.readingBook = readingBook;
     }
 
-    public abstract void enterLibrary();
+    public void enterLibrary(){
+        System.out.printf(role + " %s зашел в библиотеку\n", name + " " + surname);
+    }
 
-    public abstract void leaveLibrary();
+    public void leaveLibrary(){
+        System.out.printf(role + " %s покинул библиотеку\n", name + " " + surname);
+    }
 
 }
