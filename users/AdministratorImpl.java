@@ -9,16 +9,7 @@ public class AdministratorImpl extends User implements Administrator {
         this.name = name;
         this.surname = surname;
         this.id = id;
-    }
-
-    @Override
-    public void enterLibrary() {
-        System.out.printf("Администратор %s зашел в библиотеку\n", name + " " + surname);
-    }
-
-    @Override
-    public void leaveLibrary() {
-        System.out.printf("Администратор %s покинул библиотеку\n", name + " " + surname);
+        this.role = "Администратор";
     }
 
     @Override
@@ -37,17 +28,17 @@ public class AdministratorImpl extends User implements Administrator {
     @Override
     public void overdueNotification(User reader) {
         if (reader.readingBook != null) {
-            System.out.printf("Сообщаю, что читатель %s %s просрочил срок возврата книги %s!\n", reader.getName(), reader.getSurname(), reader.getReadingBook().getName());
+            System.out.printf("Сообщаю, что читатель %s просрочил срок возврата книги %s!\n", reader.getName() + " " + reader.getSurname(), reader.getReadingBook().getName());
         }
     }
 
     @Override
     public void acceptBook(User reader) {
         if (reader.getReadingBook() != null) {
-            System.out.printf("%s %s вернул книгу %s в библиотеку.\n", reader.getName(), reader.getSurname(), reader.getReadingBook().getName());
+            System.out.printf("%s вернул книгу %s в библиотеку.\n", reader.getName() + " " + reader.getSurname(), reader.getReadingBook().getName());
             reader.setReadingBook(null);
         } else {
-            System.out.printf("%s %s не имеет на руках книг.\n", reader.getName(), reader.getSurname());
+            System.out.printf("%s не имеет на руках книг.\n", reader.getName() + " " + reader.getSurname());
         }
     }
 
@@ -56,13 +47,13 @@ public class AdministratorImpl extends User implements Administrator {
         if (reader.isStatus()) {
             if (reader.getReadingBook() == null) {
                 reader.setReadingBook(book);
-                System.out.printf("%s %s успешно взял для прочтения книгу %s, необходимо вернуть книгу в течении следующего месяца.\n", reader.getName(), reader.getSurname(), book.getName());
+                System.out.printf("%s успешно взял для прочтения книгу %s, необходимо вернуть книгу в течении следующего месяца.\n", reader.getName() + " " + reader.getSurname(), book.getName());
             } else {
                 System.out.printf("Сначало нужно будет вернуть книгу: %s в библиотеку!\n", reader.getReadingBook().getName());
             }
 
         } else {
-            System.out.printf("Читатель %s %s не смог взять для прочтения книгу %s. Нужно предъявить читательский билет.\n", reader.getName(), reader.getSurname(), book.getName());
+            System.out.printf("Читатель %s не смог взять для прочтения книгу %s. Нужно предъявить читательский билет.\n", reader.getName() + " " + reader.getSurname(), book.getName());
         }
     }
 }

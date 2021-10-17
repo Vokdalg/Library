@@ -2,11 +2,11 @@ package resources;
 
 public class Book {
     private int numberOfReaders;
-    private String name;
-    private String genre;
-    private int numberOFSheets;
-    private int year;
-    private double price;
+    private final String name;
+    private final String genre;
+    private final int numberOFSheets;
+    private final int year;
+    private final double price;
 
 
     public Book(String name, String genre, int numberOFSheets, int year, double price) {

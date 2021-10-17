@@ -9,21 +9,12 @@ public class SupplierImpl extends User implements Supplier, Reader {
         this.name = name;
         this.surname = surname;
         this.id = id;
-    }
-
-    @Override
-    public void enterLibrary() {
-        System.out.printf("Поставщик %s зашел в библиотеку\n", name + " " + surname);
-    }
-
-    @Override
-    public void leaveLibrary() {
-        System.out.printf("Поставщик %s покинул библиотеку\n", name + " " + surname);
+        this.role = "Поставщик";
     }
 
     @Override
     public void transferOrder(LibrarianImpl librarian) {
-        System.out.printf("Поставщик %s %s передал библиотекарю %s %s следующие книги: ", getName(), getSurname(), librarian.getName(), librarian.getSurname());
+        System.out.printf("Поставщик %s передал библиотекарю %s следующие книги: ", getName() + " " + getSurname(), librarian.getName() + " " + librarian.getSurname());
         LibraryDataBase.printOrder();
     }
 
